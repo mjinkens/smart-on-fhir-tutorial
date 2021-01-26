@@ -28,6 +28,10 @@
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
+          //$('#ufname').html(u.ufname);
+          //$('#ulname').html(u.ulname);
+          $('#username').html(smart.tokenResponse.username);
+
           var fname = '';
           var lname = '';
 
@@ -86,6 +90,14 @@
     };
   }
 
+  function defaultUser(){
+    return {
+      ufname: {value: ''},
+      ulname: {value: ''},
+      username: {value: ''}
+    };
+  }
+
   function getBloodPressureValue(BPObservations, typeOfPressure) {
     var formattedBPObservations = [];
     BPObservations.forEach(function(observation){
@@ -114,7 +126,7 @@
     }
   }
 
-  window.drawVisualization = function(p) {
+  window.drawPatientVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
     $('#fname').html(p.fname);
